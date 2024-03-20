@@ -8,6 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class ApiTest extends TestBase {
+
     @Test
     public void successfulGetUserListTest() {
         Response statusResponse = given()
@@ -25,6 +26,7 @@ public class ApiTest extends TestBase {
 
         assertThat(statusResponse.path("total"), is(12));
     }
+
         @Test
         void successfulPostCreateTest() {
             String body = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
@@ -70,6 +72,7 @@ public class ApiTest extends TestBase {
         assertThat(statusResponse.path("job"), is("zion resident"));
         assertThat(statusResponse.path("updatedAt"), notNullValue());
     }
+
     @Test
     void successfulPatchUpdateTest() {
         String body = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
@@ -92,7 +95,6 @@ public class ApiTest extends TestBase {
         assertThat(statusResponse.path("job"), is("zion resident"));
         assertThat(statusResponse.path("updatedAt"), notNullValue());
     }
-
     @Test
     void successfulDeleteTest() {
 
